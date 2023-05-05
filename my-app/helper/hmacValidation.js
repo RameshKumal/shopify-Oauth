@@ -1,5 +1,5 @@
-const crypto = require('crypto');
-require('dotenv').config();
+const crypto = require("crypto");
+require("dotenv").config();
 
 const calculatedHmac = (data) => {
   const message = Object.keys(data)
@@ -16,6 +16,6 @@ const calculatedHmac = (data) => {
   return calculated_hmac;
 };
 
-module.exports={
-    calculatedHmac
-}
+module.exports = {
+  calculatedHmac,
+};

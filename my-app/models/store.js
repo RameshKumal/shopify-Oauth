@@ -1,20 +1,42 @@
-module.exports=(sequelize, Sequelize) =>{
-    const store = sequelize.define('store',{
-        store_id: {
-            type:Sequelize.INTEGER,
-            primaryKey:true,
-            autoIncrement: true,
-        },
-        store_owner:Sequelize.STRING,
-        owner_email:Sequelize.STRING,
-        store_name:Sequelize.STRING,
-        address:Sequelize.STRING,
-        phone:Sequelize.STRING,
-        access_token:Sequelize.STRING,
-
-    },{
-        createdAt:"created_at",
-        updatedAt:"updated_at",
-    });
-    return store;
-}
+module.exports = (sequelize, Sequelize) => {
+  const store = sequelize.define(
+    "store",
+    {
+      id: {
+        type: Sequelize.INTEGER,
+        primaryKey: true,
+        autoIncrement:true,
+      },
+      store_id: {
+        type: Sequelize.BIGINT,
+        unique: true,
+      },
+      store_owner: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      owner_email: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      store_domain: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      country: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      phone: Sequelize.STRING,
+      access_token: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+    },
+    {
+      createdAt: "created_at",
+      updatedAt: "updated_at",
+    }
+  );
+  return store;
+};

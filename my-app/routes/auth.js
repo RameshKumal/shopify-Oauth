@@ -1,10 +1,15 @@
 const express = require("express");
+const app = express();
 const router = express.Router();
-const { auth, forward } = require("../controllers/store");
+const { authorization, accessShopData } = require("../controllers/store");
 
 // @api/shopify/
+let routes = (app) => {
+  router.get("/authorize", authorization);
+  router.get("/redirect", accessShopData);
 
-router.get("/authorize", auth);
-router.get("/redirect", forward);
+  /*base routes */
+  app.use('/api/shopify', router);
+};
 
-module.exports = router;
+module.exports = routes;

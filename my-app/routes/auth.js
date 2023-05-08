@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const router = express.Router();
 const { authorization, accessShopData } = require("../controllers/store");
+// const { createCustomer, getCustomer, updateCustomer, deleteCustomer } = require("../controllers/customer");
 
 // @api/shopify/
 let routes = (app) => {
@@ -9,7 +10,7 @@ let routes = (app) => {
   router.get("/redirect", accessShopData);
 
   /*base routes */
-  app.use('/api/shopify', router);
+  app.use("/api/shopify", router);
 };
 
 module.exports = routes;

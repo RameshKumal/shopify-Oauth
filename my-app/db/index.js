@@ -32,8 +32,11 @@ db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
 db.store = require("../models/store")(sequelize, Sequelize);
+db.customer = require("../models/customer")(sequelize, Sequelize);
+db.customer_address = require("../models/customer.address")(sequelize, Sequelize);
 
-// db.store.hasMany(db.product, { foreignKey: "store_id" });
+db.customer.hasOne(db.customer_address);
+
 // db.product.belongsTo(db.store, { foreignKey: "store_id" });
 
 // db.store.hasMany(db.orderInfo, { foreignKey: "storeId" });

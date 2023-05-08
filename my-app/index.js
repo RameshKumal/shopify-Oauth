@@ -3,9 +3,10 @@ const app = express();
 require('./db/index');
 require('dotenv').config();
 const port = process.env.port;
-const routes = require('./routes/auth');
+
 const initRoutes = require('./routes/auth');
-const customerRoutes = require('./routes/customer')
+const customerRoutes = require('./routes/customer');
+const productRoutes = require('./routes/product');
 
 /*body parser */
 app.use(express.json());
@@ -14,6 +15,7 @@ app.use(express.urlencoded({extended: true}));
 /*intitroutes */
 initRoutes(app);
 customerRoutes(app);
+productRoutes(app);
 
 
 app.listen(port, () => {

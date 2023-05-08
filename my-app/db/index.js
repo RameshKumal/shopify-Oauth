@@ -31,19 +31,22 @@ const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
+/*models */
 db.store = require("../models/store")(sequelize, Sequelize);
 db.customer = require("../models/customer")(sequelize, Sequelize);
 db.customer_address = require("../models/customer.address")(sequelize, Sequelize);
+db.product = require("../models/product")(sequelize, Sequelize);
+db.productVariant = require("../models/product.variant")(sequelize, Sequelize);
+db.productOption = require("../models/product.option")(sequelize, Sequelize);
 
+/*models associations */
 db.customer.hasOne(db.customer_address);
 
-// db.product.belongsTo(db.store, { foreignKey: "store_id" });
+db.product.hasMany(db.productVariant);
+db.productVariant.belongsTo(db.product);
 
-// db.store.hasMany(db.orderInfo, { foreignKey: "storeId" });
-// db.orderInfo.belongsTo(db.store, { foreignKey: "storeIid" });
-
-// db.product.hasMany(db.variant, { foreignKey: "product_id" });
-// db.variant.belongsTo(db.product, { foreignKey: "product_id" });
+db.product.hasMany(db.productOption);
+db.productOption.belongsTo(db.product);
 
 //without syncing the the database table wont create.
 db.sequelize.sync({ force: false }).then(() => {

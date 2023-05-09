@@ -15,7 +15,7 @@ module.exports = (sequelize, Sequelize) => {
       },
       name: Sequelize.STRING,
       position: Sequelize.BIGINT,
-      values: [],
+      
     },
     {
       createdAt: "created_at",

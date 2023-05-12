@@ -12,7 +12,7 @@ let routes = (app) => {
 
 
   /*base routes */
-  app.use('/api/shopify', router);
+  app.use('/api/shopify/customer', router);
 };
 
 module.exports = routes;

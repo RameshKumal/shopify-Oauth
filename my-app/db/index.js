@@ -38,6 +38,7 @@ db.customer_address = require("../models/customer.address")(sequelize, Sequelize
 db.product = require("../models/product")(sequelize, Sequelize);
 db.productVariant = require("../models/product.variant")(sequelize, Sequelize);
 db.productOption = require("../models/product.option")(sequelize, Sequelize);
+db.order = require("../models/order/order")(sequelize, Sequelize);
 
 /*models associations */
 db.customer.hasOne(db.customer_address);

@@ -7,6 +7,7 @@ const {
   updateProduct,
   deleteProduct,
 } = require("../controllers/product");
+// const {verifySessionToken} = require("../middleware/auth.middleware")
 
 // @api/shopify/
 let routes = (app) => {
